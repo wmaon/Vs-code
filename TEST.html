@@ -2,62 +2,25 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>测试</title>
+<title>Vue (runoob.com)</title>
 <script src="https://cdn.staticfile.net/vue/3.2.36/vue.global.min.js"></script>
-<style>
-#app {
-  border: dashed black 1px;
-  display: inline-block;
-  padding-bottom: 10px;
-}
-
-#app > button {
-  display: block;
-  margin: auto;
-}
-
-#lightDiv {
-  position: relative;
-  width: 150px;
-  height: 150px;
-}
-
-#lightDiv > img {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-#lightDiv > div {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 80%;
-  height: 80%;
-  border-radius: 50%;
-  background-color: yellow;
-}
-</style>
 </head>
 <body>
-<div id="app">
-  <div id="lightDiv">
-    <div v-show="lightOn"></div>
-    <img src="https://static.jyshare.com/libs/images/svg/img_lightBulb.svg">
-  </div>
-  <button v-on:click=" lightOn =! lightOn ">开/关</button>
+<div id="hello-vue" class="demo">
+    <button v-on:click="showMessage = !showMessage">显示/隐藏</button>
+    <p v-show="showMessage">Hello Vue!</p>
 </div>
 
 <script>
-const app = Vue.createApp({
+const HelloVueApp = {
   data() {
     return {
-      lightOn: false
+      showMessage: true
     }
   }
-})
-app.mount('#app')
-</script>
+}
 
+Vue.createApp(HelloVueApp).mount('#hello-vue')
+</script>
 </body>
 </html>
